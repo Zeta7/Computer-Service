@@ -31,8 +31,7 @@ const createRepair = async (request, response) => {
 const updateRepair = async (request, response) => {
     try {
         const { repair } = request;
-        const { date } = request.body;
-        await repair.update({ date });
+        await repair.update({ status: 'completed' });
         response.status(200).json({ status: 'succes'});
     } catch (error) {
         console.log(error);
@@ -42,7 +41,7 @@ const updateRepair = async (request, response) => {
 const deleteRepair = async (request, response) => {
     try {
         const { repair } = request;
-        await repair.update({ status: 'disable' });
+        await repair.update({ status: 'cancelled' });
         response.status(200).json({ status: 'succes' });
     } catch (error) {
         console.log(error);

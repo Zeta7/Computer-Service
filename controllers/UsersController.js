@@ -31,8 +31,8 @@ const createUser = async (request, response) => {
 const updateUser = async (request, response) => {
     try {
         const { user } = request;
-        const { name, email, password } = request.body;
-        await user.update({ name, email, password });
+        const { name, email } = request.body;
+        await user.update({ name, email });
         response.status(200).json({ status: 'succes' });
     } catch (error) {
         console.log(error);
